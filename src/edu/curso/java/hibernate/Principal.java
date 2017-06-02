@@ -79,7 +79,7 @@ public class Principal {
         }
 
         System.out.println("Fuzzy------------------------------------------------");
-
+//busqueda difusa
         query = qb.keyword().fuzzy().onField("apellido").matching("zamorai").createQuery();
 
         hibQuery = fullTextSession.createFullTextQuery(

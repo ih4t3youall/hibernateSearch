@@ -10,14 +10,17 @@ import org.hibernate.search.annotations.*;
 
 
 @Entity
+//para decirle que va con fulltextsearch
 @Indexed
 public class Cliente {
 	
 	private Long id;
-	
+//	le digo que lo tome en cuenta tokenized es que busque palabras
+//      store no significa que no guarde el dato(valor) de la tabla al lado del indice, basicamente evita que que vaya a la base de datos
+//      un tokenized busca por palabra completa
 	@Field(index=Index.TOKENIZED, store=Store.NO) 
 	private String nombre;
-	
+//	index embebed indexa relaciones, y si le pongo store.yes me guarda el padre y el hijo
 	@Field(index=Index.TOKENIZED, store=Store.NO)
 	private String apellido;
 	
